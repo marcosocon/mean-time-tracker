@@ -1,0 +1,27 @@
+<h2>Let´s track some hours</h2>
+<label>Projects :</label>
+<md-select ng-model="project">
+	<md-option ng-repeat="project in projects" value="{{project.name}}">
+		{{project.name}}
+	</md-option>
+</md-select>
+<md-input-container class="md-block" flex-gt-sm>
+	<label>Hours :</label>
+	<input ng-model="hours" type="number" step="0.25">
+</md-input-container>
+<label>Date :</label>
+<br>
+	<md-datepicker ng-model="date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+<md-button class="md-raised md-primary" ng-click="logHours()">Log Hours</md-button>
+
+<md-list>
+	<md-subheader class="md-no-sticky">Hours Logged</md-subheader>
+	<md-list-item class="md-3-line" ng-repeat="log in logs">
+		<div class="md-list-item-text" layout="column">
+			<h3>Project : <strong>{{ log.project }}</strong></h3>
+			<h4>Hours : <strong>{{ log.hours }}h</strong></h4>
+			<p> {{ log.date }}</p>
+		</div>
+		<md-divider ></md-divider>
+	</md-list-item>
+</md-list>

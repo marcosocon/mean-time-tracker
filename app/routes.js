@@ -15,6 +15,6 @@ var Reports  = require('./models/reports');
 		//route to handle post:create
 		//route to handle delete:delete
 		app.get('*', function(req, res){
-			res.sendFile('./public/views/index.html');
+			res.sendfile('./public/views/index.html');
 		});
 	};
