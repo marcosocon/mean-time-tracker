@@ -1,5 +1,13 @@
-angular.module('ReportsCtrl', []).controller('ReportsController', function($scope) {
+angular.module('ReportsCtrl', ['ReportService'])
+	.controller('ReportsController', function($scope, ReportService) {
 
-    $scope.title = 'Nothing beats a pocket protector!';
+	$scope.getReports = function (){
+		ReportService.get().then(function(response){
+		$scope.reports = response.data;
+		});
+	};
+
+	$scope.getReports();
+
 
 });

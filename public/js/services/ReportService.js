@@ -1,14 +1,17 @@
 angular.module('ReportService', [])
-.factory('Report', ['$http', function($http){
+.factory('ReportService',['$http', function($http){
 	return {
 		get: function(){
-			return $http.get('/api/reports');
+			return $http.get('data/reports.json')
+				.then(function(response){
+					return response;
+				});
 		},
-		create: function(reportData){
-			return $http.post('/api/reports', reportData);
-		},
-		delete: function(id){
-			return $http.delete('/api/reports/' + id);
-		}
+		// create: function(reportData){
+		// 	return $http.post('/api/reports', reportData);
+		// },
+		// delete: function(id){
+		// 	return $http.delete('/api/reports/' + id);
+		// }
 	};
 }]);
